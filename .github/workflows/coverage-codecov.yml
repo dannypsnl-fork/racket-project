@@ -37,7 +37,7 @@ jobs:
           distribution: "minimal"
           variant: "CS"
           version: "current"
-          packages: "cover, cover-codecov"
+          packages: "cover-codecov"
       - run: raco pkg install --auto --skip-installed
       - run: |
           raco test .
