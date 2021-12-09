@@ -35,9 +35,17 @@ jobs:
       - name: Build
         run: |
           raco pkg install --auto --skip-installed
-      - name: Deploy
+          raco cover .
+      - name: Deploy Document
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: doc/${{ github.event.repository.name }}
           publish_branch: master
+      - name: Deploy Coverage
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: coverage
+          publish_branch: master
+          destination_dir: coverage
