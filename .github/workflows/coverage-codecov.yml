@@ -3,7 +3,7 @@ on:
     branches:
       - "*"
     paths:
-      - "**coverage.yml"
+      - "**coverage-codecov.yml"
       - "**.rkt"
       - "**.scrbl"
   pull_request:
