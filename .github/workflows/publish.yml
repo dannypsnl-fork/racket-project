@@ -36,6 +36,7 @@ jobs:
         run: |
           raco pkg install --auto --skip-installed
           raco cover .
+          raco scribble --htmls ++main-xref-in --redirect-main http://docs.racket-lang.org/ --dest doc scribblings/${{ github.event.repository.name }}.scrbl
       - name: Deploy Document
         uses: peaceiris/actions-gh-pages@v3
         with:
