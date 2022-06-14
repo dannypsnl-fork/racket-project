@@ -3,7 +3,6 @@ new_proj_name=$1
 # repo name
 sed -i "" "s/racket-project/$new_proj_name/g" ./info.rkt
 sed -i "" "s/racket-project/$new_proj_name/g" ./main.rkt
-sed -i "" "s/racket-project/$new_proj_name/g" ./Makefile
 sed -i "" "s/racket-project/$new_proj_name/g" ./scribblings/racket-project.scrbl
 echo "# $new_proj_name" > README.md
 
