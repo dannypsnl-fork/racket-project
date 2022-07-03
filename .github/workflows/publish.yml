@@ -25,17 +25,16 @@ jobs:
           path: |
             ~/.cache/racket
             ~/.local/share/racket
-          key: ${{ runner.os }}-primes
+          key: ${{ runner.os }}-racket
       - uses: Bogdanp/setup-racket@v1.7
         with:
-          architecture: "x64"
-          distribution: "minimal"
+          architecture: x64
+          distribution: full
           variant: "CS"
           version: "stable"
       - name: Build
         run: |
           raco pkg install --auto --skip-installed
-          raco cover .
           raco scribble --htmls ++main-xref-in --redirect-main http://docs.racket-lang.org/ --dest doc scribblings/${{ github.event.repository.name }}.scrbl
       - name: Deploy Document
         uses: peaceiris/actions-gh-pages@v3
@@ -43,10 +42,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: doc/${{ github.event.repository.name }}
           publish_branch: master
-      - name: Deploy Coverage
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: coverage
-          publish_branch: master
-          destination_dir: coverage
