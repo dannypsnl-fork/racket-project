@@ -2,9 +2,18 @@ read -p "Name of project? [Recommended: use lowercase, and if it is many words, 
 
 # author name
 read -p "GitHub username? [Default: dannypsnl] : " username
-if [ -z $username ]; then echo "keep origin github id"; else sed -i "" "s/dannypsnl/$username/g" ./info.rkt; fi
+if [ -z $username ]; then
+    echo "keep origin github id"
+else
+    sed -i "" "s/dannypsnl/$username/g" ./info.rkt
+    sed -i "" "s/dannypsnl/$username/g" ./README.md
+fi
 read -p "your only name? [Default: Lîm Tsú-thuàn] : " yourname
-if [ -z $yourname ]; then echo "keep origin author name"; else sed -i "" "s/Lîm Tsú-thuàn/$yourname/g" ./scribblings/racket-project.scrbl; fi
+if [ -z $yourname ]; then
+    echo "keep origin author name"
+else
+    sed -i "" "s/Lîm Tsú-thuàn/$yourname/g" ./scribblings/racket-project.scrbl
+fi
 
 # repo name
 sed -i "" "s/racket-project/$new_proj_name/g" ./info.rkt
