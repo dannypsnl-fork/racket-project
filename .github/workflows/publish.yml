@@ -41,4 +41,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: doc/${{ github.event.repository.name }}
-          publish_branch: master
+          publish_branch: gh-pages
+          destination_dir: doc
