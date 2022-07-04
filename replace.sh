@@ -13,6 +13,7 @@ if [ -z $yourname ]; then
     echo "keep origin author name"
 else
     sed -i "" "s/Lîm Tsú-thuàn/$yourname/g" ./scribblings/racket-project.scrbl
+    sed -i "" "s/Lîm Tsú-thuàn/$yourname/g" ./LICENSE-MIT
 fi
 
 # repo name
